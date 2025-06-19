@@ -1,0 +1,11 @@
+
+START
+DISPLAY registration form
+WAIT for user input
+IF 'Review' button is clicked THEN
+    COLLECT input field values
+    DISPLAY them below the form
+IF 'Submit' button is clicked THEN
+    VALIDATE fields
+    REDIRECT to thank you page
+END

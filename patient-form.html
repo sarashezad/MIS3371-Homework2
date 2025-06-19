@@ -1,0 +1,33 @@
+<!--
+Program name: patient-form.html
+Author: Shaeer Saleem
+Date created: 2025-06-13
+Date last edited: 2025-06-13
+Version: 2.0
+Description: Patient registration form with validations and review feature
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Registration Form</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="header">
+        <h1>We'R'Docs Medical</h1>
+        <p id="date"></p>
+    </div>
+    <form id="registrationForm">
+        <!-- Form fields would go here -->
+        <button type="button" onclick="reviewForm()">Review</button>
+        <button type="submit">Submit</button>
+        <button type="reset">Clear and Start Over</button>
+    </form>
+    <div id="reviewSection"></div>
+    <div id="footer">
+        <button onclick="alert('Contact us at support@werdocs.com')">Contact Us</button>
+    </div>
+</body>
+</html>

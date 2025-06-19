@@ -1,0 +1,152 @@
+<!--
+Program name: index.html
+Author: Sara Saleem
+Date created: 06-10-2025
+Date last edited: 06-13-2025
+Version: 1.1
+Description: Patient Registration Form for MIS 3371 Homework 1
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Sara’s Medicine - Patient Registration</title>
+<link href="style.css" rel="stylesheet"/>
+<script>
+    window.onload = function () {
+        const today = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+        document.getElementById('dateDisplay').innerText = today.toLocaleDateString('en-US', options);
+    };
+</script>
+</head>
+<body>
+<div id="header">
+<img alt="Sara's Medicine Logo" src="hw1.png" width="150"/>
+<div id="dateDisplay" style="float: right; margin-top: 20px;"></div>
+<h1>Sara’s Medicine</h1>
+</div>
+<div id="main">
+<form action="thankyou.html">
+<fieldset>
+<legend><strong>Set up a new profile</strong></legend>
+<table>
+<tr>
+<td>First Name:</td>
+<td><input maxlength="30" name="firstname" type="text"/></td>
+<td>Middle Initial:</td>
+<td><input maxlength="1" name="middleinitial" size="1" type="text"/></td>
+<td>Last Name:</td>
+<td><input maxlength="30" name="lastname" type="text"/></td>
+</tr>
+<tr>
+<td>Date of Birth (MM/DD/YYYY):</td>
+<td><input name="dob" placeholder="MM/DD/YYYY" type="text"/></td>
+</tr>
+<tr>
+<td>Social Security Number:</td>
+<td><input maxlength="11" placeholder="XXX-XX-XXXX" type="password"/></td>
+</tr>
+<tr>
+<td>Address Line 1:</td>
+<td><input maxlength="30" type="text"/></td>
+</tr>
+<tr>
+<td>Address Line 2:</td>
+<td><input maxlength="30" type="text"/></td>
+</tr>
+<tr>
+<td>City:</td>
+<td><input maxlength="30" type="text"/></td>
+<td>State:</td>
+<td>
+<select name="state" required>
+<option value="">Select State</option>
+<option>AL</option><option>AK</option><option>AZ</option><option>AR</option><option>CA</option>
+<option>CO</option><option>CT</option><option>DE</option><option>FL</option><option>GA</option>
+<option>HI</option><option>ID</option><option>IL</option><option>IN</option><option>IA</option>
+<option>KS</option><option>KY</option><option>LA</option><option>ME</option><option>MD</option>
+<option>MA</option><option>MI</option><option>MN</option><option>MS</option><option>MO</option>
+<option>MT</option><option>NE</option><option>NV</option><option>NH</option><option>NJ</option>
+<option>NM</option><option>NY</option><option>NC</option><option>ND</option><option>OH</option>
+<option>OK</option><option>OR</option><option>PA</option><option>RI</option><option>SC</option>
+<option>SD</option><option>TN</option><option>TX</option><option>UT</option><option>VT</option>
+<option>VA</option><option>WA</option><option>WV</option><option>WI</option><option>WY</option>
+</select>
+</td>
+<td>Zip Code:</td>
+<td><input maxlength="10" placeholder="12345" type="text"/></td>
+</tr>
+<tr>
+<td>Email Address:</td>
+<td><input placeholder="name@domain.tld" type="email"/></td>
+</tr>
+<tr>
+<td>Describe Your Current Symptoms:</td>
+<td colspan="3"><textarea cols="50" placeholder="Describe your symptoms here..." rows="3"></textarea></td>
+</tr>
+<tr>
+<td>Current Symptoms:</td>
+<td colspan="3">
+<input type="checkbox"/> Fever
+<input checked="" type="checkbox"/> Headache
+<input type="checkbox"/> Nausea
+<input type="checkbox"/> Fatigue
+<input type="checkbox"/> Shortness of Breath
+<input type="checkbox"/> None
+</td>
+</tr>
+<tr>
+<td>Check all of the following that apply:</td>
+<td colspan="3">
+<input type="checkbox"/> Chicken Pox
+<input type="checkbox"/> Small Pox
+<input type="checkbox"/> Tetanus
+</td>
+</tr>
+<tr>
+<td>Gender:</td>
+<td><input name="gender" type="radio"/> Male
+<input name="gender" type="radio"/> Female</td>
+</tr>
+<tr>
+<td>Pregnant:</td>
+<td><input name="pregnant" type="radio"/> Yes
+<input name="pregnant" type="radio"/> No</td>
+</tr>
+<tr>
+<td>Allergies:</td>
+<td><input name="allergy" type="radio"/> Yes
+<input name="allergy" type="radio"/> No</td>
+</tr>
+<tr>
+<td>Rate Your Health (1-10):</td>
+<td><input max="10" min="1" type="range" value="5"/></td>
+</tr>
+<tr>
+<td>User ID:</td>
+<td><input maxlength="20" type="text"/></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><input type="password"/></td>
+</tr>
+<tr>
+<td colspan="4">
+<button type="reset">CLEAR AND START OVER</button>
+<button type="submit">Submit</button>
+</td>
+</tr>
+</table>
+</fieldset>
+</form>
+</div>
+<div id="footer">
+<p class="footer-text">
+We'R'Docs Medical | PO BOX 18881 | Sugar Land TX 77496 |
+<button onclick="window.location.href='mailto:support@sarasmedicine.com'" type="button">Contact Us</button>
+</p>
+<p class="footer-text">Website built by Sara Saleem</p>
+</div>
+</body>
+</html>

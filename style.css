@@ -1,0 +1,12 @@
+/*
+Program name: style.css
+Author: Shaeer Saleem
+Date created: 2025-06-13
+Date last edited: 2025-06-13
+Version: 2.0
+Description: CSS styling for patient registration form
+*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e3f2fd;
+}
