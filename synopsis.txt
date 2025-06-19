@@ -1,4 +1,0 @@
-
-My website/form allows a patient to register with demographic and medical information.
-- ✅ I am happy the 'Review' button works and dynamically displays user-entered information.
-- 🔧 I still need to implement external state dropdown sourcing.
