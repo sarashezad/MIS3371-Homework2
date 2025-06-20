@@ -12,43 +12,44 @@
         <h1>Sara’s Medicine</h1>
         <p id="date"></p>
     </div>
+
     <div id="form-area">
-        <form>
+        <form id="profileForm">
             <table>
                 <tr><th align="left">Set up a new profile</th></tr>
                 <tr>
                     <td>First Name:</td>
-                    <td><input type="text" name="firstname" title="Enter your first name (letters only)" pattern="[a-zA-Z'-]{1,30}" required></td>
+                    <td><input type="text" name="firstname" required></td>
                     <td>Middle Initial:</td>
-                    <td><input type="text" name="midinitial" title="Enter one letter only" pattern="[a-zA-Z]?" maxlength="1"></td>
+                    <td><input type="text" name="midinitial" maxlength="1"></td>
                     <td>Last Name:</td>
-                    <td><input type="text" name="lastname" title="Enter your last name" pattern="[a-zA-Z0-9'-]{1,30}" required></td>
+                    <td><input type="text" name="lastname" required></td>
                 </tr>
                 <tr>
                     <td>Date of Birth:</td>
-                    <td><input type="date" name="dob" title="MM/DD/YYYY" required></td>
+                    <td><input type="date" name="dob" required></td>
                 </tr>
                 <tr>
                     <td>Social Security Number:</td>
-                    <td><input type="password" name="ssn" title="XXX-XX-XXXX" pattern="\d{3}-\d{2}-\d{4}" required></td>
+                    <td><input type="password" name="ssn" required></td>
                 </tr>
                 <tr>
                     <td>Email:</td>
-                    <td><input type="email" name="email" title="name@domain.tld" required></td>
+                    <td><input type="email" name="email" required></td>
                     <td>Phone:</td>
-                    <td><input type="tel" name="phone" title="000-000-0000" pattern="\d{3}-\d{3}-\d{4}" required></td>
+                    <td><input type="tel" name="phone" required></td>
                 </tr>
                 <tr>
                     <td>Address Line 1:</td>
-                    <td><input type="text" name="address1" minlength="2" maxlength="30" required></td>
+                    <td><input type="text" name="address1" required></td>
                 </tr>
                 <tr>
                     <td>Address Line 2:</td>
-                    <td><input type="text" name="address2" minlength="2" maxlength="30"></td>
+                    <td><input type="text" name="address2"></td>
                 </tr>
                 <tr>
                     <td>City:</td>
-                    <td><input type="text" name="city" minlength="2" maxlength="30" required></td>
+                    <td><input type="text" name="city" required></td>
                     <td>State:</td>
                     <td>
                         <select name="state" required>
@@ -56,11 +57,10 @@
                             <option value="TX">TX</option>
                             <option value="CA">CA</option>
                             <option value="NY">NY</option>
-                            <!-- Add other states -->
                         </select>
                     </td>
                     <td>Zip Code:</td>
-                    <td><input type="text" name="zip" pattern="\d{5}(-\d{4})?" required></td>
+                    <td><input type="text" name="zip" required></td>
                 </tr>
                 <tr>
                     <td>Check all that apply:</td>
@@ -74,18 +74,24 @@
                 </tr>
                 <tr>
                     <td>Have you been vaccinated?</td>
-                    <td><label><input type="radio" name="vaccinated" value="yes">Yes</label>
-                        <label><input type="radio" name="vaccinated" value="no">No</label></td>
+                    <td>
+                        <label><input type="radio" name="vaccinated" value="yes">Yes</label>
+                        <label><input type="radio" name="vaccinated" value="no">No</label>
+                    </td>
                 </tr>
                 <tr>
                     <td>Are you pregnant?</td>
-                    <td><label><input type="radio" name="pregnant" value="yes">Yes</label>
-                        <label><input type="radio" name="pregnant" value="no">No</label></td>
+                    <td>
+                        <label><input type="radio" name="pregnant" value="yes">Yes</label>
+                        <label><input type="radio" name="pregnant" value="no">No</label>
+                    </td>
                 </tr>
                 <tr>
                     <td>Do you have allergies?</td>
-                    <td><label><input type="radio" name="allergies" value="yes">Yes</label>
-                        <label><input type="radio" name="allergies" value="no">No</label></td>
+                    <td>
+                        <label><input type="radio" name="allergies" value="yes">Yes</label>
+                        <label><input type="radio" name="allergies" value="no">No</label>
+                    </td>
                 </tr>
                 <tr>
                     <td>Current Symptoms:</td>
@@ -100,7 +106,7 @@
                 </tr>
                 <tr>
                     <td>Describe Your Symptoms:</td>
-                    <td colspan="5"><textarea name="symptomdesc" title="Optional. Avoid using double quotes."></textarea></td>
+                    <td colspan="5"><textarea name="symptomdesc"></textarea></td>
                 </tr>
                 <tr>
                     <td>Pain Level (0-10):</td>
@@ -111,7 +117,7 @@
                 </tr>
                 <tr>
                     <td>User ID:</td>
-                    <td><input type="text" name="userid" title="5-30 chars, no special symbols" required></td>
+                    <td><input type="text" name="userid" required></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
@@ -124,12 +130,37 @@
             </table>
             <button type="reset">Clear and Start Over</button>
             <button type="submit">Submit</button>
-            <button type="button" onclick="alert('Review function triggered!')">Review</button>
+            <button type="button" onclick="reviewForm()">Review</button>
         </form>
     </div>
+
+    <div id="reviewBox" style="margin:20px; border:1px solid #ccc; padding:10px;"></div>
+
     <div id="footer">
         <p>We'R'Docs Medical | PO BOX 18881 | Sugar Land TX 77496</p>
         <p><em>Website built by Sara Saleem</em></p>
     </div>
+
+    <script>
+        function reviewForm() {
+            const form = document.getElementById('profileForm');
+            let output = "<h3>Review Your Information</h3><ul>";
+
+            const formData = new FormData(form);
+            const seen = new Set();
+
+            for (let [key, value] of formData.entries()) {
+                if (seen.has(key)) continue;
+                const values = formData.getAll(key);
+                output += `<li><strong>${key}:</strong> ${values.join(", ")}</li>`;
+                seen.add(key);
+            }
+
+            const painLevel = document.getElementById("painlevel").value;
+            output += `<li><strong>Pain Level:</strong> ${painLevel}</li>`;
+
+            document.getElementById("reviewBox").innerHTML = output + "</ul>";
+        }
+    </script>
 </body>
 </html>
